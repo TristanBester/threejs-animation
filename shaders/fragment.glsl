@@ -32,7 +32,7 @@ float lines(vec2 uv, float offset){
     return smoothstep(
         0.,
         0.5 + offset * 0.5,
-        abs(0.5 * sin(uv.x * 10.) + offset * 2.)
+        abs(0.5 * sin(uv.x * 5.) + offset * 2.)
     );
 }
 
@@ -52,7 +52,7 @@ void main(){
 
     vec2 baseUV = rotate2d(n) * vPosition.xy * 0.25;
     float basePattern = lines(baseUV, 0.1);
-    float secondPattern = lines(baseUV, 0.05);
+    float secondPattern = lines(baseUV, 0.005);
 
     vec3 baseColor = mix(baseSecond, baseFirst, basePattern);
     vec3 secondBaseColor = mix(baseColor, accent, secondPattern);
